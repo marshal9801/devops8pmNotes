@@ -1458,6 +1458,695 @@ Network Load Balancer ---> TCP, TLS, UDP
 Gateway Load Balancer
 
 Classic load balancer ---> http, https, tcp, tls
+---------------------------------------------------------------------------
+ASG:
+
+Auto Scaling Group
+
+* horizonatal scalability
+* 100 ---> 1000 ---> scale out
+* 1000 ---> 100 ---> scale in
+
+scale out ---> number of machines increased
+scale in ---> number of machines decreased
+
+
+Step 1
+Choose launch template or configuration:
+
+ASG ---> template(create an ec2 template) --> attach an template to an ASG
+
+Step 2
+Choose instance launch options
+
+chosen the subnet
+
+Step 3 - optional
+Configure advanced options:
+
+choose the ELB(no balancer)
+
+Step 4 - optional
+Configure group size and scaling policies
+
+Group size:
+
+Desired Capacity ---> number of instances you need initially
+Minimum Capacity ---> minimum number of instances
+Maximum Capacity
+
+
+3 --> server
+2 --> minimum capacity
+10 --> maximum capacity
+
+2 --> desired capacity
+2 --> minimum capacity 
+
+1 machine terminate --> additional one more machine should be created
+------------------------------------------------------------------------------
+SDLC:
+
+Software Development Life Cycle
+
+Phases:
+
+* Requirement Gathering
+* Design
+* Development
+* Testing
+* Deployment
+* Maintanence
+
+Models:
+
+Waterfall
+V model
+Iterative model
+Agile model
+
+WaterFall:
+
+Phases:
+
+* Requirement Gathering
+* Design
+* Development
+* Testing
+* Deployment
+* Maintanence
+
+* Requirement Gathering:
+
+idenfity and documents the project requriements ---> client needs, app functionality and user expectations
+SRS Document ---> Software Requirement Specification
+
+* Design:
+
+HLD --> High Level Design Document
+
+overiew of the software architecture, main components ---> diagrams 
+
+LLD ---> Low Level Design Document
+
+detailed explnation of the application
+
+* Development:
+
+developers will start writing code based on the documentation we have   
+
+* Testing:
+
+test the application once the development is completed
+
+Test planning
+Test Strategy
+Test Scenario
+Test Case
+Test Closure
+
+* Deployment:
+
+release the application to the customer
+user manaul
+
+* Maintanence:
+
+we need to maintain the application which has been already deployed
+-----------------------------------
+
+Disadvantages:
+
+* once the requirement finalized, we cannot make the changes to the requirement
+* lack of early feedback 
+* late detection of problems
+* no much communication between the teams
+* longer delivery times
+* client interaction will be very low
+----------------------------------------------------------------
+Agile:
+
+* iterative and incremental process
+* flexibility to the clients
+* any new changes can be accepted in the middle of the phase
+* client collaboration will be very high
+
+
+Principles/manifesto:
+
+* individuals and interactions over process and tools
+* working software over comprehensive documentation
+ instead of spending so much time on documnetation ---> make your application quality
+* Customer colloboration over contract negotiation:
+Development team + customers ---> we can understand btter about the application
+* Responding to the change over following a plan:
+any new changes can be accepted in the middle of the phase
+
+
+Framwework:
+
+Scrum
+Kanban 
+
+Scrum:
+
+* everyone are same in the team ---> scrum team
+
+Scrum Team Roles:
+
+BA ---> Business Analyst ---> developement team ---> BA---> client
+Scrum Master/Project Manager ---> track the work which is done by dev, tester, devops
+Developers
+Testers
+DevOPs
+
+
+Sprint: ---> time duration
+
+2 - 4 weeks sprint duration
+
+2 weeks --> 10 days(developement + testing + devops)
+
+4 weeks  --> 1 realease 
+-------------------------------------
+
+Epic ---> bulk requrirement
+EPIC ---> split into user stories
+
+Meetings/Ceremonies:
+
+Sprint grooming
+Sprint planning
+Daily Standup
+sprint retrsopective
+sprint review
+
+Sprint grooming:
+
+* BA, Developer , Testers , Devops
+* 2 - 3 hours
+* story points ---> based on complexity
+
+Poker card techinque --> fibonacci series
+
+min --> 1
+max ---> 5
+
+1 --> 2 days
+5 --> 10 days
+
+Tester --> Berlin --> 2
+Developer -> Marsha --> 2
+Developer Soundar --> 3
+Developer Sakthi --> 1
+Tester salamon ---> 3
+Tester Kathir --> 5
+Dev sasi --> 2
+
+
+2 ---> 3 votes
+3 ---> 2 votes
+1 --> 1 vote
+5 ---> 1 vote
+* Product backlog ---> all user stories will be moved to PB
+
+Sprint Planning:
+
+* Scrum Master + Developers + Testers + Devops
+* 1 -2 hours
+* day 1 of sprint starts
+* assign the users stories to the team members
+* sprint backlog ---> us which we ae going to work on the current sprint
+
+Daily Standup meeting:
+
+* 30 mins
+* what did you done yesterday
+* what work doing today
+* any blockers/issues
+
+Head: Scrum master
+
+Sprint Retrospective:
+
+* what went well in the previous sprint
+* what not went well in the previous sprint
+* any challanges faced to overcome in the next sprint
+* any feedbacks/suggestions
+* apprciations
+
+Head: Scrum master
+
+1 hour
+
+Sprint Review Meeting:
+
+* we need to show case the demo to the client---> which we have done in the previous sprint
+-----------------------------------------------------------------
+
+DevOPs:
+
+GIT:
+
+1) SCM ---> Source Code Management
+
+Developer ---> Java/Python/JS ---> Source Code
+
+Maintaining/Storing ---> GIT/SVN
+
+2) Version Control System:
+
+Record/manage the changes which we have done
+Track all the changes when multiple dev work on same projects
+
+Login Page:
+
+Dev1 ---> Sign In
+Dev2 --> username + password 
+Dev3 ---> submit button
+
+File1 ---> hello ---> v1
+File1 ---> hello welcome ---> v2
+File1 ---> hello welcome to aws ---> v3
+
+Linux Kernel ---> OS
+
+Linus Torward ---> developed the git
+
+Whatsapp ---> Chat ---> 1.0
+Whatsapp ---> fixes the bug in chat ---> 1.1
+Whatsapp ---> Chat + Audio Call ---> 1.2
+
+Audio Call ---> introducing the audio call feature ---> issue arises (1.2)
+-----
+
+Manual check whats the issue
+team colloboration 
+time consuming
+Challenging
+
+Linus ---> SCM
+
+VCS:
+
+Centralized Version Control System --> CVCS
+Distributed Version Control System --> DVCS
+
+Centralized Version Control System --> CVCS:
+
+Centralized server ---> Single Point Of Failure
+
+Whatsapp ---> Chat ---> 1.0
+Whatsapp ---> video call ---> 1.1
+Whatsapp ---> Audio Call ---> 1.2
+
+If the CS Fails ---> code has been gone 
+
+Dev1 --> Whatsapp ---> Chat backup ---> 1.0
+Dev2 --> Whatsapp ---> encryption ---> 1.1
+Dev3 --> Whatsapp ---> Profile pic ---> 1.2
+
+If the dev machine fails ---> current working code gone
+
+eg: SVN
+-----
+DVCS:
+
+Distributed Version Control System
+
+* even though machine crashes ---> our code is safe
+* GIT or GITHUB
+* GITLAB
+* Tortoise GIT
+* Bit Bucket
+* Source Tree
+
+https://git-scm.com/download/win
+
+git init ---> initialize the empty repostiry
+
+git config --global user.email <email>
+
+git config --global user.name <username>
+
+git remote add origin repourl
+
+git status ---> to check for modified files
+
+git add path ---> add specific path
+
+git add . ---> add all the files
+
+git commit -m "message"
+
+git push -u origin master
+
+
+git clone repourl ---> clone your project
+
+tomo we will se aws instance...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
