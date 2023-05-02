@@ -1,0 +1,2909 @@
+Day_01:
+
+Master Program in AWS DevOps:
+Duration: 3.5 months (+-10days)
+
+Modules to be covered:
+
+Module 1: AWS(services) ---> 30 hours
+Module 2: python ---> 6 hours
+Module 3: Linux ----> 10 hours
+Module 4: DevOps --> (10 tools) ---> 30 hours
+Module 5: Project setup + aws + devops
+Module 6: Resume preparation + Mock interviews + Interview preparation
+Module 7: Placement 
+
+
+Module 1: AWS
+
+Introduction:
+
+application:
+
+Web ---> anything opening in the browser
+Mobile ---> apps in mobile
+Desktop ---> apps in desktop
+
+Cloud Computing:
+
+cloud providers ---> aws, azure, GCP
+
+Why cloud computing?
+
+FacebookNew ---> developer ---> java/js/python/react js---> testers tested the application ---> host the application ---> server
+
+
+FB ---> server 1 and server 2 ----> 100 users
+
+100 ---> 10000 ----> server crash
+
+1000 servers 
+
+Overcome:
+
+* Data centers/ on premises
+
+* initial investment is high
+* High acres of land
+* time took to construct is very high
+* operational/maintanence high
+* scalability ---> 100 ---> 10000 ---> server increase
+10000 ----> 1000 ---> waste of servers
+
+
+To overcome these issues , we gone for cloud computing:
+
+* initial investment is low
+* no land needed 
+* no time required
+* no operational/maintanence
+* pay per usage
+* scalability ---> 100 ---> 1000 ---> automatically server allocate within the fraction of mins
+1000 ---> 100 ---> allocate it will reduce as well
+
+scalability:
+
+* Horizontal
+* Vertical
+
+* Horizontal:
+
+* 100 users ---> 6GB RAM ---> 100GB memory ---> suddenly 1000 users 
+* we require more servers/machines/configuration need to allocate
+
+* Vertical:
+
+* 100 users ---> 1000 users  ---> 6GB RAM --> 100GB memory
+* upgrading the congifurration in the same server/machine
+
+------------------------------------------------------------------
+
+Day 2:
+
+AWS ---> Once aws account created ---> region
+
+1) Region: 
+
+* geographical location
+* Each region has multiple availablity zones(data centres)
+
+OT(chennai) ---> app ---> us people going to use our OT site ---> region us
+
+latency ---> distance
+
+ecommerce site ---> amazon ---> india, us, Australia  ----> where more customers that locaion we need to choose
+
+2) Availabilty Zones:
+
+* Data centres
+* That AZ ---> secured ---> noone knows where that AZ located ---> aws peoples doest not know
+
+33 regions ---> 99 availablityzones
+
+example 3:
+
+netflix ---> australian and india peoples ---> indian customers high ---> Asia
+
+aus govnmt ---> restrict ---> our customer data should not be shared asian servers-----> we need to choose australian region
+
+example 4:
+
+Netflix -----> us, india, uk ---> us customers high ---> region USA 
+
+video performance ---> us people
+india ---> slow performance---> latency high distance
+uk ---> slow 
+
+3) Edge locations:
+
+* AZ has multiple edge locations
+* data will be cached
+
+Cached data will be used for optimizing the performance
+------------------
+
+Region:
+
+* geographical location
+* based on number of customers usage in country
+* Each region has multiple Availabilty Zones
+
+Availability Zones:
+
+* data centres
+* Noone knows where the AZ are located
+* each AZ is independent of each other
+* each AZ has edge locations
+
+Edge Locations:
+
+* to cache the data to improve the application performance
+
+OT(development team in india) ---> customers in UK ---> UK region
+amazon --> us, india, uk ---> uk has more customers ---> uk region
+netflix--> us, india, uk --> uk has more customers and performance is good in uk---> edge locations ---> cache the data to improve perfromace in india and us
+
+---------------------------------------
+Day_03:
+
+How to create an EC2 instance:
+
+EC2----> Elastic Compute Cloud ---> Virtual Machine/server/instance
+
+Steps to Create:
+
+1) EC2 dashboard ---> launch the instance
+2) Name and tags ---> key value pair
+name = ansar
+age = 20
+name should be unique ---> to identify the server/machine/instance
+3) AMI ---> Amazon Machine Image ---> Software part ---> OS(operating system) + preinstalled software
+4) Instance type ---> Hardware part
+
+How to choose instance type? 
+
+* based on the workload of application
+
+vcpu , memory, n/w performace
+
+Instance Families:
+
+* General purpose ----> moderate and balanced cpu, memory, performace
+* Compute optimized ---> calculation optimized project
+* Storage optimized -----> high load db projects
+* memory optimized ----> database projects
+* Acclerated computing ----> more calculative projects ---> 
+* HPC ---> High performance computing ---> very high ---> costly when compared to above families
+
+
+4) Pricing Options:
+
+* On Demand Pricing
+* Reserved pricing
+* Spot instance
+* dedicated host
+
+On Demand Pricing:
+
+* sudden purchase
+* expensive
+
+Reserved pricing:
+
+* plan early and will reserve the instance
+* 1- 3 yrs
+* cheap ---> 70 % discount
+
+fully upfront: ----> total amount will be initally paid ---> 70%
+Partial upfront: ---> partial amount will be paid and remaining amount will be paid by pay per usage ---> 50%
+No upfront: initial amount will not be paid ----> 20%
+
+Spot Instance:
+
+* unused servers will be allocated 
+* 90% discount will be given
+* not reliable
+
+server --> $5
+
+person 1 ---> $5
+person 2 ---> $10
+person 3 ---> $15
+
+Dedicated Host:
+
+* one particualr server dedicated to one company
+* expensive and reliable
+---------------------
+
+5) Key pair(login)---> secure our instance ---> mandatory
+
+6) Network settings ---> Firewall---> security groups
+
+SSH ---> secure shell ---> in order to access the linux from outside
+
+Allow SSH --> anywhere
+
+7) Configuration Setting: ---> hardisk
+
+Launch instance:
+
+* UI(User interface) ---> using browser
+* programmatical way --> terminal, shell script/python
+
+syntax:
+
+ssh -i <key-pair> username@ipaddress
+
+-i -->identity
+
+cmd ---> cd(change directory)-->
+
+
+Key-Pair:
+
+* securely connect to the instance
+* private key and public key
+* public key(AWS)
+* private key(user/local machine)---> .pem
+
+
+If you not selected the allow ssh while creating an instance----> we can also allow the ssh after creating the instance
+
+
+select the server ---> security ---> ourbound rules ---> allow ssh
+
+ppk ---> Putty
+
+putty ---> third party tool to connect an ec2 instance
+
+download: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+hostname ---> copy paste the ip address
+connection--->ssh---> auth---> crednetials----> click browse ---> upload the ppk file
+--------------------------------------------------------------------------------------
+
+Launch Windows:
+
+SSH ---> only for linux
+RDP --> only for windows
+
+--------------------------------------------------------------
+
+Day 6:
+
+Storage in EC2:
+
+Storage ---> hardsisk/pendrive/google cloud
+
+* instance storage(default storage)
+* While creating an EC2 it will automatically allocated
+* ephimeral storage
+* faster
+
+ephimeral storage:
+
+* faster but it is not reliable
+* if anything happens to the machine---> entire data crashes
+* temporary data
+* tightly coupled
+
+eg: RAM
+
+AWS removed this option from EC2 ---> to overcome this EBS
+
+
+Persitent storage:
+
+* Reliable 
+* external hardisk, pendrive, gcloud
+* permanent data'
+* lousely coupled
+
+EBS ---> Elastic Block Storage
+
+* External storage
+* even if the machine crashes, our data is safe with the EBS
+* persistent storage
+
+Types of volumes:
+
+* Magnetic disk drive(no companies using this MDD)
+* HDD
+* SSD
+
+Data:
+
+Cold Data
+Hot Data
+
+Cold Data:
+
+* infrequently accessed data
+
+Hot Data:
+
+* frequently accessed data 
+* ex: Big data
+
+
+* HDD: Hard Disk Drive
+
+* Cold HDD ----> infrequently accessed data
+* Throughput HDD(Hot data)
+
+Throughput:
+
+* factor of performance for the data transfer/sec
+* amount of data transferring per second
+
+ex: 1GB file transferring from EC2 windwos machine ---> EBS
+
+SSD:
+
+Solid State Drive
+
+* performance is very high
+* expensive 
+* reliable
+
+General purpose
+Provisional IOPS
+
+General purpose:
+
+* when moderate traffic/spike in your application
+* less cost when comapred to IOPS
+
+Provisional IOPS:
+
+* Input/Output ---> read/write
+* number of i/o per sec
+* performance/costly
+* high traffic
+---------------------------------------------------------------------------------------
+
+Restrictions in EBS:
+
+* Volume which we creating should not be shared to other regions
+* volume which we have created should be shared to only one EC2 instance
+
+By Default ---> EC2 having the storage in EBS
+
+Can we increase the storage at the run time?
+
+Yes, we can increase the storage of an EC2 server at the runtime
+
+When we choose General purpose SSD ---> 1GB ---> 3 IOPS/sec
+
+IOPS---> read/write 
+
+iops/3000 ---> refillable
+
+When we choose provisional IOPS ---> 1 GB --> 50 IOPS/sec
+-------------------------------------------------------------
+SnapShot:
+
+* backup of EBS
+
+eg: Whatsapp backup
+
+Git(gcloud) ---> Distrubuted Version Control System 
+
+Types:
+
+* Manual snapshot ---> feature called snapshot
+* Automation snapshot ---> feature called lifecycle manager
+
+Step1: select your ebs volume
+Step2: Scedhule the job ----> CRON Operations
+
+Retention ---> recent snapshot
+-----------------------------------------------------
+Restrictions of EBS:
+
+1) EBS can be attached with one EC2 instance ---> resolved
+2) EBS and EC2 same AZ ----> ebs not resolved
+
+EBS Multi Attach Feature:
+
+* Provisional IOPS
+* nitro type instance
+
+EFS:
+To overcome the restrictions in EBS ---> EFS(Elastic File System)
+----------------------------------------------------------------------------------------------
+
+EFS: Elastic File System
+
+* Shared resource
+* Regional service ---> data cannot be shared outside the region
+
+Task:
+
+Two Machine ---> EFS
+machine1 ---> adding the file
+machine2 ---> reflected in machine2
+
+EFS:
+
+storage class:
+
+standard
+one zone ---> data will be replicated in only one AZ
+standard IA
+
+one zone: 
+data will be replicated in only one AZ
+save the money
+
+standard:
+* data will be replicated across multiple AZ.
+* expensive when compared to one zone
+
+standard IA:
+
+IA --> infrequent Access
+* if your data not accessed frequently ---> it will automatically moved to standard IA
+* less expensive when compared to IA
+
+
+Transition into IA ---> when our data shiuld be moved to IA
+Transition out of IA---> when our data should be moved back to standard from IA
+
+Performace setting:
+
+Bursting ---> auto scale
+Enhanced ---> flxible
+
+Mount targets:
+
+EFS ---> order to connect to EC2 ---> NFS(Network File System) protocol
+
+By default---> each AZ will have the mount targets
+
+EFS ---> directly we cannot connect to EC2---> we need support of MT(Mount Target)
+
+MT ---> ip address
+
+
+sudo ---> superuser ---> root user permission---> adminstrator permission
+
+sudo su ---> normal user to root user
+pwd ---> present working direcrtory
+sudo yum -y update ---> to update all the packages
+sudo yum -y install package-utils
+mkdir --> make dorectory --> create one directory
+ls --> list all the driver/folders/files
+cd --> chnage directory
+touch ---> to create a file
+
+
+SSH ---> allow to access my linux machine
+NFS ---> allow
+
+EFS:
+
+* EFS will not support to other regions EC2
+
+EFS ---> this service only for the linux machine
+
+NFS:
+
+EFS ---> linux
+FSx ---> windows
+------------------------------------------------------------------------------
+USER DATA:
+
+* to install the softwares on multiple machine ----> we are going for user data
+
+prev process:
+
+* to install the software on ec2 machine ---> yum install -y java-utils
+-----------------------------------------------------------------------------------------
+
+S3: 
+
+* Simple Storage Service
+* Unstructed files ----> text, image, videos, audio files
+* Cheaper than EFS
+
+EFS ----> storage + number of File operations
+S3 -----> Only for storage
+* Unlimited storage
+* Single Object ---> more than 5TB
+* Object Storage Service
+   * properties ---> meta data
+   * meta data file  ---> complete informartion about the storage
+* Bucket ---> S3 bucket
+
+
+EBS ---> EFS ----> S3--> we can connect with multiple EC2 ---> we can connect with multiple AZ----> We can connect through multiple regions(CRR)
+
+XML ----> Extensive MArkup Language
+JSON ---> JavaScript Object Notation
+
+key-value pair
+
+name = awsmachine
+
+Bucket Policy----> policy written by JSON
+
+URL ---> Uniform Resource Locator
+URI ---> Uniform Resource Identifier
+URN ---> Uniform Resource Name
+
+ARN ---> Amazon Resource Name
+
+--------------------------------------------------------------------------------
+
+S3 --> Versioning
+
+Version ---> to track all the modified files
+
+or track all the changed files
+
+file name ---> file.txt
+
+hello ---> V1
+
+hello
+testing ---> V2
+
+hello
+testing
+aws   ----> V3
+
+Bucket Versioning:
+
+By default ---> in s3 ---> disabled
+
+Developer ---> production deploy ---> customer --->V1
+
+V2 ---> deploy ---> customer ----> error
+
+revert back to V1
+
+When we disable the versioning:
+
+* we cannot access the older version files in bucket 
+* only current version will be accessed
+-----------------------------------------------------
+
+How to host the static website on S3:
+
+static ---> constant --> no changes will be made
+dynamic ---> often chnanges will be done to the site
+
+S3---> allows the static to host 
+
+After creating an bucket ---> properties ----> Static website hosting
+
+By default ---> it will be disabled
+-------------------------------------------------
+S3 EVENT Notifications:
+
+* Notify whenever the event occurs
+
+
+AWS Lambda ---> SQS and SNS
+
+SQS ---> Simple Queue Service 
+
+SNS ---> Simple Notification Service
+
+SQS ---> if there's no user/noone is ready to receive the notifications ----> message queue for 14 days---> if suddenly user comes---> it will deliver the message
+
+SNS ---> if user not available ---> notification will not be delivered
+
+SNS --->Simple Notification Service
+
+* Topics
+* notification service
+
+SNS ---> pub sub model ---> publisher subscriber model
+
+publisher ---> S3
+subscriber ---> user
+
+SNS ---> intermediate
+
+push notification:
+
+S3 ----> SNS topic --->pushing the notification---> user/subscriber
+-------------------------------------------------------------------
+Storage class in s3:
+
+* S3 Standard
+* S3 Glacier
+
+S3 Standard:
+
+* default storage class in S3
+* If you're accessing your data frequently
+* immediatedly 
+
+S3 Glacier:
+
+* infrequntly access to your data
+* not immediatedly
+---------------------------------------------------------
+
+Life Cycle rule:
+
+* Transfer the objects from one storage class to another storage class
+* delete the object if you don't want 
+
+To manage your objects so that they are stored cost effectively throughout their lifecycle
+-------------------------------------------------
+
+Characteristics of S3:
+
+* highly available service
+* Whenever we creat an s3 ---> it will select the region ---> data will be replicated in two or more AZ's
+* S3 - one zone ---> one az data will be stored
+--------------------------------------------------------------
+CRR:
+
+Cross Region Replication
+
+Amazon S3 CRR automatically replicates data between buckets across different AWS Regions. 
+
+S3 ---> region ---> NV
+Same data can be replicated in Mumbai region
+------------------------------------------------------------------
+Server Access logging:
+
+logs ---> message --> information file
+
+Infomration
+Error
+Warning
+Fatal error
+
+By default ---> s3 server access loggin will be disabled
+Troubleshoot ---> we will look into the log file
+
+* integrate any third party tools for  monitoring and securing our s3 resources
+---------------------------------------------------------
+Encryption:
+
+* process od converting the plain text or any file into the encrypted file---> so that noone can understand the format of this
+
+eg:
+
+image ---> encrypt ---> asdfghjkl;iuytrew456789p ---> password -->decrypt --> image access
+
+Server-side encryption:
+
+* after the data has been uploaded in s3 bucket
+
+SSE - s3
+SSE - KMS --> key
+SSE - C (third party tool)
+
+Client side encryption:
+
+* encrypted before the file upload
+------------------------------------------------------------------
+1) What is cloud computing
+2) EC2
+3) linux, windows
+4) putty
+5) instance types and families
+6) EFS
+7) Snapshots
+8) EBS
+9) S3
+10) Event notifications, access log,static site hosting
+11) Versioning
+----------------------------------------------------------------
+
+Root user:
+
+* administrator user
+* there's no restrictions
+* super/powerful user
+
+Best practice:
+
+* day to day activities ---> IAM user
+
+To make our gmail account secure:
+
+1) username + password
+2) OTP
+3) Tap the number displayed on the screen
+
+Add extra layer of security to our root user ---> MFA(Multi Factor Authentication)
+
+By default ---> disabled
+----------------------------------------
+
+IAM:
+
+Identity and Access Management
+
+----> Authentication + Authorization
+
+Authentication:
+
+* validating the identity
+
+Authorization:
+
+* validating the access
+
+1 file(shared driver) ---> 12 members
+
+5 ---> view access
+5 ---> read/write access
+2 ---> no access
+
+10 ---> authenticated users
+5 ---> authorized users
+2 ---> permission to authenticate/authorized denied
+
+
+Four elements in IAM services:
+
+1) IAM user
+2) Roles
+3) Groups
+4) Policies
+
+Authentication:
+
+IAM user
+Roles
+
+Authorization:
+
+Policies
+
+Best Practices:
+
+Groups
+
+IAM ---> Authentication + Authorization ---> user/roles + policies
+
+"Who can access What"
+
+Who ---> making a call : user/service/application
+Access ---> set of instruction which either allow or deny the access---> policy
+What ----> Aws resources/services
+
+
+File ---> 6 persons
+
+3 ---> viewer
+2 ---> read/write
+1 ---> no access
+
+Authenticated ---> 5
+Authorization ---> 2
+1 ----> no auth and authorization
+
+Root user ---> Authentication + Authorized ---> super access
+
+IAM ---> Authentication ----> until root user gives the permission
+
+How to create an IAM user:
+
+we need to login as root user ----> PM/TL
+
+Root user ---> login ---> email + password + MFA ---> it is recommended to use MFA
+
+IAM --> Account Id + username + password
+
+How many ways we can create an IAM user?
+
+* AWS UI
+* CLI ---> cmd/powershell/awscloudshell
+* Programming way
+-----------------------
+
+IAM Groups:
+
+* collection of IAM users
+* Who needs a similar kind of access
+
+Amazon_Team ---> 10 developers
+
+10 developer(IAM users) ---> need to access to outlook/Mail
+
+Group : Outlook Access
+
+10 Dev ---> add all the developers into the outlook access group
+
+Group : Teams Access
+
+10 Dev ---> add all the dev to the team access group
+
+IAM Group:
+
+* Attach the policy at the group level
+* user will inherit the policy
+* Group cannot be nested
+
+Group ---> we cannot create sub group under the group
+
+User can be in multiple groups
+
+
+S3AccessGroup         EC2Group            EFSGroup
+
+Manager                Manager             Manager
+TL                        TL                 TL
+Sr.Lead                                     Sr.Lead
+------------------------------------------------
+Policies:
+
+* Template
+
+JSON Template ---> set of intructions ---> who should have access and for whom we should deny
+
+Managed Policy:
+
+AWS Managed policy ---------> managed by aws
+Customer Managed policy
+
+How can we access IAM user:
+
+UI
+CLI
+
+Install the aws cli on your windows
+
+After installing ---> open your cmd ---> aws --v
+
+Access keys:
+
+Root user should generate an access key to the IAm user
+
+aws configure
+accesskey
+secretkey
+region
+json
+
+aws s3 ls
+aws s3 mb s3://bucketname ---> create an bucket using cli
+
+--------------
+Authentication:
+
+IAM user ---------> completed
+Roles
+
+Authorization:
+
+Policies -----------> completed
+
+Best Practices:
+
+Groups
+
+-----------------
+
+IAM Roles:
+
+* Authentication ---> validating the identity
+
+Diff IAM user and IAM role:
+
+IAM User:
+
+static credentials
+long term access
+
+IAM Role:
+
+dynamic credentials ---> Aws generated password
+short term access or temporary access or time bound access
+
+Maximum session duration -->default is ---> 1 hour
+
+How to switch into the role:
+
+Iam user ---> switch role under account settings
+
+By default ---> Iam user ---> switch role denied
+
+From your root user ---> create an policy ---> sts service to select and select IAM service 
+
+sts service ---> going to give the access for the iam user to switch into the role
+
+user ---> add permission ---> attach the policy which we have created
+IAM user ---> switchrole---> we can now switch to role
+----------------------------------------
+VPC:
+
+VPC ---> Virtual Private Cloud
+
+* independent service
+* Regional service
+* logical isolated network
+
+isolation:
+
+* separate ---> private space ---> secure
+
+logically isolated:
+
+example:
+
+server ---> shared by multiple users ---> but their resources are not shared ---> they are protected from one another through networks
+
+Each user ---> may be secured with private cloud ---> vpc---> separate the users
+
+VPC ---> securing the resources between the users
+
+By default ---> Each region is secured by VPC
+
+VPC ARCHITECTURE:
+
+VPC ---> SIMILAR REGION
+AZ --> SIMILAR SUBNETS
+
+LIKE HOW THE REGION HAS MULTIPLE AZ'S THE SAME WAY EACH VPC HAS MULTIPLE SUBNETS
+
+SUBNETS:
+
+* Public Subnet
+* Private Subnet
+
+By default ---> VPC will not allow the public internet
+
+* Public Subnet:
+
+Internet Gateway---> helps to access the internet
+Routing Table --> example act as an map ---> source and destination ---> where the internet access is needed
+
+Private Subnet:
+
+* Noone can access the private subnet with the public network
+* Public subent can give access to internet to the private subnet
+
+public subnet --->NAT --> implicit router ---> access to the internet ---> private subnet(internt access)
+NAT ---> Network Access Translation Gateway
+----------------------------------------
+
+Why we need an subnet:
+
+example:
+
+Banking:
+
+HDFC app ---> fund transfer
+
+Database ---> all infromation is availbale in this DB
+
+public subnet ---> hdfc app
+private subnet ---> database
+
+Some resource may be public:
+
+* whenever we require an direct interaction with resources through internet 
+
+Some resource may be private:
+
+* whenever we require an indirect interaction with resources
+---------------------------------------------------------------
+
+Each world ---> all countries are unique
+
+Each system --> has the unique IP address
+
+Machine ---> public ip address
+Network provider(Airtel) ---> Private ip address
+
+IP address ---> Network ID + Host id
+
+IP address:
+
+ipv4 --> 32 bit ip address
+
+183.82.204.47
+8    8   8  8
+
+ipv6 ---> 128 bit ip address
+
+ab25.gh33.hu78.uum8.snk2.jj81.ii91.uut2
+16    16   16   16   16   16   16   16
+----------------------------
+
+Ipv4:
+
+Network ID / Host ID
+
+10.0.0.0/32
+
+Network ID: ---> made up of four blocks
+
+Every block has the range ---> 0 - 255
+
+Host ID:
+
+* one block
+* 1 - 32
+
+eg:
+
+12.34.188.255
+255.255.255.255
+
+10.0.0.0/32
+
+CIDR:
+
+Classless Inter-Domain Routing
+
+* improves the efficiency of address distribution
+
+10.0.0.0/32 ---> 1 ip address --> 10.0.0.0
+10.0.0.0/31 ---> 2^32-31 ---> 2^1 --> 2
+  eg: 10.0.0.0 and 10.0.0.1
+10.0.0.0/30 ---> 2^32-30 ---> 2^2 ---> 4
+  eg: 10.0.0.0, 10.0.0.1, 10.0.0.2, 10.0.0.3
+10.0.0.0/24 ---> 2 ^32-24 ---> 2^8 --> 256
+   eg: 10.0.0.0
+       10.0.0.1
+       10.0.0.2
+       .
+       .
+       .
+       10.0.0.255
+10.0.0.0/23 --> 2^32-23
+
+   eg: 10.0.0.0 --> 10.0.0.255 --> 10.0.1.0 --> 10.0.1.255
+
+10.0.0.0/16 ---> 2 ^ 32-16 --> 2^16 --> 65536
+
+10.0.0.0/8 --->2^32-8 --> 2^24 ---> 1C
+
+10.0.0.0/1 ---> 2^32-31 --> 2^31 --> 21C
+------------------------------------------------------------
+
+VPC ---> Virtual Private Cloud
+
+By default --> Each region --> vpc 
+
+each vpc ---> multiple subnets ---> each subnets we can create ec2, db
+
+Subnets:
+
+public ---> hdfc bank ---> direct access with the internet
+private ---> DB ---> indirect access through the internet
+
+10.0.0.0/24
+2^32-24 ---> 2^8 --> 256
+2*2*2*2*2*2*2 --> 2^7 --> 128
+
+Default VPC:
+
+VPC + Subnet + IGW + RT
+
+User VPC:
+
+Create an VPC
+Create an Subnet
+Create an IGW and attach to your VPC
+By default RT will automatically created
+
+RT ---> routes --> IGW select
+Explicit subnet associations ---> chooose the subnet which we want to connect
+
+Then launch the instance with the vpc and subnet which we have created ---> we can connect
+----------
+
+To connect public and private subnet:
+
+Vpc ---> 2 subnets(1 public and 1 private)
+1 public subnet ---> create IGW + RT(attach this IGW)
+1 private subnet --> create NAT gateway + RT(attach this NGW)
+Create one public EC2 --> vpc + public subnet
+Create another private EC2 --> vpc + private subnet
+
+Cloudshell ---> upload the .pem file
+
+public subnet:
+
+Connect your public EC2 ---> chmod 400 name.pem
+ssh -i key-pair username@ipaddress
+
+private subnet:
+
+sudo su 
+vim keypairname.pem
+copy the keypair by opening your .pem file in notepad  and paste in the editor
+chmod 400 name.pem
+ssh -i key-pair username@ipaddress
+---------------------------------------------------
+
+VPC Peering:
+
+* sharing your resource from one vpc to another vpc
+
+defaultvpc(requester) ---> trying to connect --> uservpc(accepter)
+
+Transit Gatway:
+(Notes in other machine ---> will update here)
+--------------------------------------------------------------------
+Security Group  vs NACL:
+
+Security Group ---> instance level firewall
+NACL : Subnet level firewall
+
+Security Group:
+
+Instance level Firewall
+statefull(he remembers the authentication)
+allow rule
+
+NACL:
+
+Subnet level firewall
+Stateless(he not remember the authentication ---> incoming --> authentication, outcoming --> authenticate)
+allow/explicit deny(particular ip deny)
+-----------------------------------------------------------------------------------
+
+Application:
+
+Ec2 instance
+Storage
+Network - vpc
+Database
+
+Database:
+
+* systematic collection of data
+* huge Data management
+
+-> Availabilty
+-> Scalabilty
+-> Fault Tolerance
+
+AWS Managed Service vs Unmanaged Service
+
+1) RDS(Relation Database Service) ---> AWS Managed Service
+2) Custom Database(EC2) ---> unmanaged service --> user managed service
+
+Types of DB's:
+
+1) SQL/RDMS(Relation Database Management System)
+
+MySql, ORACLE, MS Acess, Postgres, MariaDB
+
+2) NoSQL 
+
+MongoDB, Hadoop, Cassandra, HBase
+
+yum install -y mysql ---> to install the mysql on your machine
+
+mysql --version ---> version check
+
+mysql -h <database-end-point>  -P portnumber -u<user-name> -p
+
+-h --> hostname
+-P --> port number
+-u --> username(DB)
+-p --> password(DB)
+
+show databases; --> to list out the databasea available in the mysql
+
+create database <database-name>; ---> create a database
+
+use <database-name>; --> use the database which we have created
+-----------
+mysql:
+
+Create tablename;
+insert values to the table;
+
+select --> select the values 
+
+select * from table_name;
+* --> all values
+Select value from table_name;
+select value from table_name where condition;
+Drop table table_name ---> delete the table
+-----------------------------------------------------------
+RDS Read Replica:
+
+* AZ and region level
+* 5 replicas
+
+Why?
+
+* high availability
+* high performance
+---------------------------------------------------------------------------------
+RDS:
+
+* MySQL
+* strutured
+* veritcal scaling
+* query
+* low performance when cmompared to dynamo db
+* less cost when compared to dynamo db
+* serverbased
+
+DynamoDB:
+
+* NoSql
+* unstructred or semi structured
+* horizontal scaling
+* key-value format
+* high performance(millions of request per second)
+* expensive
+* serverless
+
+* aws managed service
+
+Partition key:
+
+Primary key ---> value which is unique in the table
+
+Student:
+
+std_id     std_name  std_sub  std_marks
+1           ramesh    aws        80
+2           rakesh    aws        70
+3           dinesh    aws        90
+4           nikhil    aws        60
+
+List ---> collection of items
+Map ---> key value pair --> aws -> 70 azure -50 GCP - 40
+
+Sort Key:
+
+composite key
+
+std_id     std_name  std_sub  std_marks
+1           ramesh    aws        80
+1           ramesh    azure       70
+3           dinesh    aws        90
+4           nikhil    aws        60
+
+---------------------------
+Consistency:
+
+Eventually:
+
+Delete ---> it will take some time to reflect
+
+Standard
+
+update ---> data will be immediatedly updated
+
+index:
+
+* optimize the performace of the database
+
+Brand_Name   Brand_Model
+Iphone                 13
+
+Types:
+
+Local Secondary Index
+* this option will be available only when creating an table
+* sort key
+
+Global secondary index
+* While creating as well as after creating a table
+* we need to define both partition and sort key
+
+Ecommerce:
+
+Brand_Name   ---> iphone 13 
+Cost ---> 60k
+
+Brand_Name      Details               price       delivery_date           stock
+-----------------------------------------------------------------------------------------------------
+Global table:
+
+* replication of your database
+* we can replicate in diff region of out choice
+
+Exports:
+
+* we can export our data to s3
+
+Backup:
+
+Point-in-time recovery (PITR):
+
+Point-in-time recovery provides continuous backups of your DynamoDB data for 35 days to help you protect against accidental write or delete operations. Additional charges apply. 
+----------------------------------------------------------------
+Elastic Cache:
+
+Cache ----> to oprimze the performane
+
+OLTP vs OLAP
+
+RedShift -->Datawarehouse
+------------------------------------------------------------------------------------
+AWS Lambda:
+
+* compute service
+
+EC2 ---> Virtual machine or server
+
+java + dependeencies + libraries + environment
+
+Management ---> we need to manage everything manually
+
+AWS ---> compute service ---> Lambda
+--------------------
+Lambda:
+
+* event driven serverless compute service
+
+event driven ---> driven an event
+
+serverless ---> without managing undelying infrastructure(auto managed)
+
+compute ---> processing
+
+Eg:
+
+S3 bucket ---> lambda platorm ---> lamda fucntion
+
+upload file --> .jpeg ---> hey new file has been uplodaded .jpeg
+
+---------------------------------------------------------
+Demo 1:
+
+S3
+Lambda
+cloudwatch logs
+IAM role(whenever if you're integrating one or more services)
+
+Demo2:
+
+Lambda
+CloudWatch ---> alarm 
+SNS
+
+Alarm:
+
+in alarm ---> issue occured
+ok ---> no issues
+insufficient data ---> no sufficient data
+
+Demo3:
+
+Ec2 autostop
++
+lambda + Event cloudwatch 1 minute
++
+Iamrole
+
+
+import boto3
+region = 'ap-south-1a'
+instances = ['ec2instanceid']
+ec2 = boto3.client('ec2', region_name=region)
+
+def lambda_handler(event, context):
+   ec2.stop_instances(InstanceIds=instances)
+   print('stopped your instnaces')
+----------------------------------------------------------------------
+ CloudFormation:
+
+ Create and Manage Resources with Templates
+
+ * Infrastructure as a Code(IaaC)
+ * with the help of code we can create an infrastructre
+ * template ---> JSON, YAML
+
+Cloudformation ---> Stack(Logical unit)
+
+organization ---> 5 Ec2 + 5 VPC + 1 S3 + 1RDS
+
+Stack(Logical unit which contains all the resources to be created)
+
+Feeding the resources which we need ---> cloudformation engine--> infrastructure will the help of feeded resources
+
+--------------------------------------------------
+
+Can we change the template in a stack once it has created?
+
+Yes, we can update
+
+Change set: ---> with the help of change set ---> we are going to make this change in template
+
+EC2 
+
+S3 , VPC, SG
+stack ---> update or change set
+
+https://github.com/smalltide/aws-cloudformation-master/blob/master/1-introduction/1-ec2-with-sg-eip.yaml
+----------------------------------------------------
+ELB:
+
+Elastic Load Balancer
+
+* balance your load/traffic/spike
+* split the load and allocate to the server which has been assigned by ASG
+
+ASG ---> Auto Scaling Group ---> automatically scale up the servers based upon the load increase/decrease
+
+ELB ---> allocate the load to the servers assigned by ASG
+
+google.com ---> ip address----> ELB
+
+
+www.facebook.com ---> elb address --> 5 servers 
+
+* continously monitor the health checks of servers
+
+EC2 ---> server/instance
+ELB
+
+Target ----> one server
+
+Target groups ---> collection of servers/ip address/ALB/lambda
+
+EC2 ---> we need  to add the EC2 created inside Target Groups
+
+Load balancing ---> target groups
+Load balancing ---> Load Balancers
+
+Types:
+
+Application Load Balancer ---> Http, https
+Network Load Balancer ---> TCP, TLS, UDP
+Gateway Load Balancer
+
+Classic load balancer ---> http, https, tcp, tls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
